@@ -1,15 +1,15 @@
 <div class="login-navbar">
-  <span>LOGO</span>
+  <h2>LOGO</h2>
 </div>
 
 <div class="login-form-container">
-  <h2>LOGIN</h2>
+  <h3>LOGIN</h3>
 
   <form [formGroup]="formLogin" class="form-layout">
     <input type="email" formControlName="email" placeholder="Email">
     <input type="password" formControlName="password" placeholder="Password">
-    <p *ngIf="!valid" class="validation-text">Indirizzo email o password errata.</p>
+    <p *ngIf="!valid" class="warning-text">Indirizzo email o password errata.</p>
 
-    <button [disabled]="formLogin.invalid">Login</button>
+    <button (click)="onLoginButtonClicked()">Login</button>
   </form>
 </div>
