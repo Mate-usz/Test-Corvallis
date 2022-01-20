@@ -1,27 +1,42 @@
-# TestCorvallis
+# Test Corvallis
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+## Riguardo al progetto
 
-## Development server
+Questo progetto è stato creato e sviluppato interamente con Angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Non è stato utilizzato `bootstrap`, solo `html` e `scss`.
 
-## Code scaffolding
+Per far partire il progetto è necessario digitare `ng serve` o `npm start` nella console.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Informazioni sull'applicazione
 
-## Build
+Aperta l'applicazione in `localhost:4200` viene subito caricato la pagina di login. In questa pagina vengono richieste le credenziali di accesso.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Non facendo nessun controllo sui dati inseriti nel form di login, l'applicazione ci permette di "loggare" inserendo dati casuali in entrambi i campi. Se l'utente dovesse cliccare sul pulsante `Login` senza aver compilato il form, verrà mostrato un messaggio di errore.
 
-## Running unit tests
+Quando il login sarà andato a buon fine, verrà mostrata la pagina `/dashboard` nella quale l'utente potrà scorrere una lista di customers. È possibile anche filtrare la lista per nome, aggiungere dei nuovi customer e cliccando su uno di questi verrà mostrata la pagina dei dettagli.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Informazioni sullo sviluppo
 
-## Running end-to-end tests
+`LOGIN`: 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- ho utilizzato `ReactiveFormsModule` per creare il form di login, non ho creato componenti in questa pagina essendo che non viene riutilizzato nulla. Quindi tutto quello che riguarda il login sta nell'apposito `html` e `scss`.
 
-## Further help
+`DASHBOARD`:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- ho creato un componente `customers-table` nel quale vengono popolate le varie righe della tabella;
+- per semplicità il pulsante `Add New Customer` inserisce un nuovo utente nella lista ogni volta con gli stessi dati;
+- `customers-table` all'interno del `html` ho utilizzato un `ngFor` che cicla i vari customer presenti nell'array;
+- il filtro lavora sul `firstName` del customer.
+
+`ALTRO`:
+
+- il modulo `dashboard` viene caricato in `lazy loading`;
+- nel servizio `customer` è implementata tutta la logica riguardo i customer, l'aggiunta di un nuovo customer e il get di tutti quelli presenti.
+
+## Possibili migliorie
+
+`GENERALI`:
+
+- media query più specifiche (coprire più dispositivi);
+- si potrebbe creare un modello per i `customer`, con alcuni metodi basilari (es. getFullName());
