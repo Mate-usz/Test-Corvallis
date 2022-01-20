@@ -1,0 +1,49 @@
+.customer-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px;
+  padding-top: 20px;
+
+  img{
+    height: 70px;
+  }
+
+  h2{
+    font-size: 3rem;
+    font-family: 'Biryani';
+  }
+}
+
+.customers-table-actions{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 30px 10px 50px 10px;
+}
+
+.customer-filter {
+  display: flex;
+  align-items: center;
+  height: 5vh;
+
+  input{
+    border: 1px solid #C4C4C4;
+    border-radius: 0;
+    height: 70%;
+    padding: 0 5px;
+  }
+  label{
+    font-size: 1.3rem;
+    font-family: 'Biryani';
+    font-weight: 400;
+  }
+}
+
+
+.customer-table{
+  width: 100%;
+}

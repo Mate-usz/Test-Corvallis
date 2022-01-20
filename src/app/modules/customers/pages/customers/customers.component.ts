@@ -11,14 +11,19 @@ import { CustomersService } from '../../services/customers.service';
 })
 export class CustomersComponent implements OnInit {
 
-  myCustomers: Customer[] = [];
+  allCustomers: Customer[] = [];
+  displayCustomers: Customer[] = [];
 
   sub!: Subscription;
 
   constructor(private router: Router,
               private customersService: CustomersService)
   {
-    this.sub = this.customersService.getCustomers().subscribe( data => this.myCustomers = data);
+    this.sub = this.customersService.getCustomers()
+                  .subscribe( data => {
+                    this.allCustomers = data,
+                    this.displayCustomers = this.allCustomers
+                    });
   }
 
   ngOnInit(): void {
@@ -35,5 +40,11 @@ export class CustomersComponent implements OnInit {
   showCustomerDetails(customer: Customer){
     this.customersService.currentCustomerDetails = customer;
     this.router.navigate(['dashboard/details']);
+  }
+
+  filterCustomers(target: EventTarget){
+    const inputElem = target as HTMLInputElement;
+    console.log(inputElem.value);
+    this.displayCustomers = this.allCustomers.filter( customer => customer.firstName.toLowerCase().startsWith(inputElem.value.toLowerCase()) )
   }
 }

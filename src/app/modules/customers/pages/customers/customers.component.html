@@ -1,18 +1,18 @@
 <div class="customers-container">
   <div class="customer-header">
-    <img src="../../../../../assets/images/User.svg">
-    <h2>Customers</h2>
+      <img src="../../../../../assets/images/User.svg">
+      <h2>Customers</h2>
   </div>
-  <div>
-    <div>
+  <div class="customers-table-container">
+    <div class="customers-table-actions">
       <div class="customer-filter">
         <label>Filter:</label>
-        <input type="text">
+        <input type="text" (input)="filterCustomers($event.target!)">
       </div>
       <button (click)="onAddNewCustomerClick()">Add New Customer</button>
     </div>
-    <div>
-      <app-customers-table [customers]="myCustomers" (customerClicked)="showCustomerDetails($event)"></app-customers-table>
+    <div class="customer-table">
+      <app-customers-table [customers]="displayCustomers" (customerClicked)="showCustomerDetails($event)"></app-customers-table>
     </div>
   </div>
 </div>
