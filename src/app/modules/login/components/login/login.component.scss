@@ -60,3 +60,18 @@ h3{
   font-size: 1.1rem;
   padding-top: 10px;
 }
+
+@media screen and (max-width: 760px){
+  .form-layout {
+    width: 100%;
+
+    input, button{
+      width: 100%;
+      max-width: 350px;
+    }
+
+    button{
+      height: 50px;
+    }
+  }
+}
