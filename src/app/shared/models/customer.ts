@@ -1,5 +1,6 @@
 export interface Customer{
   id: number,
+  image: string,
   firstName: string,
   lastName: string,
   address: Address,

@@ -1,0 +1,18 @@
+<div>
+  <button routerLink="/dashboard">Back to Dashboard</button>
+  <div>
+    <div>
+      <img src="{{customer.image}}">
+      <div>
+        <p>Full Name:</p>
+        <p>Address:</p>
+        <p>Order Total:</p>
+      </div>
+      <div>
+        <p>{{customer.firstName}} {{customer.lastName}}</p>
+        <p>{{customer.address.street}}, {{customer.address.city}}, {{customer.address.state}}</p>
+        <p>{{customer.orderTotal}}</p>
+      </div>
+    </div>
+  </div>
+</div>
